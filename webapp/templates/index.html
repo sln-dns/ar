@@ -47,21 +47,39 @@
   {% endif %}
 {% endwith %}
 
-        <div class="col">
-         
-            <h4>id</h4>
-        </div>
-        <div class="col">
-         <h4> <a href = {{url_for('board')}}> Adress</a> </h4>
-        </div>
-        <div class="col">
-         <h4>Number of news</h4>
-        </div>
-        <div class="col">
-         <h4>Notice</h4>
-        </div>
-       </div>
-      </div>
+<table class="table">
+  <thead>
+    <tr class="table-secondary">
+      <th scope="col">id</th>
+      <th scope="col">Adress</th>
+      <th scope="col">Number of news</th>
+      <th scope="col">Notice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td><a href = {{url_for('board')}}>выдуманный адрес1</a></td>
+      <td>4</td>
+      <td>никто не смотрит</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>выдуманный адрес2</td>
+      <td>7</td>
+      <td>стерлась метка</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>выдуманный адрес3</td>
+      <td>1</td>
+      <td>-</td>
+      
+    </tr>
+  </tbody>
+</table>       
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
