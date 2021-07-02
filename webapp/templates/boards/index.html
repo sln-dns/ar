@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+    <div class="row">
+      <div class="col-8">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="alert alert-warning" role="alert">
+                {% for message in messages %}
+                    {{ message }}<br>
+                {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+
+<table class="table">
+  <thead>
+    <tr class="table-secondary">
+      <th scope="col">id</th>
+      <th scope="col">Adress</th>
+      <th scope="col">Number of news</th>
+      <th scope="col">Notice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td><a href = {{url_for('board.board')}}>выдуманный адрес1</a></td>
+      <td>4</td>
+      <td>никто не смотрит</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>выдуманный адрес2</td>
+      <td>7</td>
+      <td>стерлась метка</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>выдуманный адрес3</td>
+      <td>1</td>
+      <td>-</td>
+      
+    </tr>
+  </tbody>
+</table>       
+</div>
+</div>
+{% endblock %}

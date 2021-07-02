@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+    
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+          {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-warning" role="alert">
+        {% for message in messages %}
+            {{ message }}<br>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endwith %}
+            <h4>message id</h4>
+        </div>
+        <div class="col">
+         <h4><a href = {{url_for('message.message')}}> message header</a></h4>
+        </div>
+        <div class="col">
+         <h4>notice</h4>
+        </div>
+       </div>
+      </div>
+      {% endblock %}

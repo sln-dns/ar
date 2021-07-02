@@ -23,10 +23,10 @@
               <a class="nav-link active" aria-current="page" href="{{url_for('index')}}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url_for('login')}}">Login</a>
+              <a class="nav-link" href="{{url_for('user.login')}}">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url_for('add_board')}}">Add Board</a>
+              <a class="nav-link" href="{{url_for('admin.add_board')}}">Add Board</a>
             </li>
            
           </ul>
@@ -34,28 +34,13 @@
         </div>
       </div>
     </nav>
-    <div class="container">
-    <div class="row">
-        <div class="col">
-          {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <div class="alert alert-warning" role="alert">
-        {% for message in messages %}
-            {{ message }}<br>
-        {% endfor %}
-    </div>
-    {% endif %}
-{% endwith %}
-            <h4>message id</h4>
-        </div>
-        <div class="col">
-         <h4><a href = {{url_for('message')}}> message header</a></h4>
-        </div>
-        <div class="col">
-         <h4>notice</h4>
-        </div>
-       </div>
-      </div>
+   
+    {% block content %} 
+    {% endblock %}
+  
+   
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
