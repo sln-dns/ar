@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, send_from_directory, flash, redirect
 from webapp.user.forms import LoginForm
 from flask.helpers import url_for
+from flask_migrate import Migrate
 from webapp.db import db
 from webapp.user.models import User
 from webapp.board.models import Board
@@ -10,7 +11,7 @@ from webapp.user.views import blueprint as user_blueprint
 from webapp.board.views import blueprint as board_blueprint
 from webapp.notice.views import blueprint as notice_blueprint
 from webapp.admin.views import blueprint as admin_blueprint
-from flask_migrate import Migrate
+
 
 #from coordinates import longitude_now, latitude_now
 
@@ -19,6 +20,7 @@ def create_app():
     app = Flask(__name__, static_folder='static', static_url_path='')
     app.config.from_pyfile('config.py')
     db.init_app(app)
+    migrate = Migrate(app, db)
     
     login_manager = LoginManager()
     login_manager.init_app(app)
