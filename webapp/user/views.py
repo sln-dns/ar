@@ -32,7 +32,7 @@ def process_login():
 def logout():
     logout_user()
     flash('Вы успешно разлогинились')
-    return redirect(url_for('board.index'))   
+    return redirect(url_for('board.board'))   
 
 
 @blueprint.route('/register')
