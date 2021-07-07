@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+      <div class="container">
+        <h1>{{ page_title }}</h1>
+        <div class="row">
+            <div class="col-4">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-warning" role="alert">
+        {% for message in messages %}
+            {{ message }}<br>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endwith %}
+<form action="{{ url_for('notice.add_notice') }}" method="POST">
+    {{ comment_form.hidden_tag() }}
+    <div class="form-group">
+        {{ comment_form.comment_text.label }}
+        {{ comment_form.comment_text() }}
+    </div>
+    {{ comment_form.submit() }}
+</form>
+            </div>
+           
+        </div> 
+
+
+    </div>
+    {% endblock %}

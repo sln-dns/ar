@@ -1,3 +1,4 @@
+from sqlalchemy.orm import backref, relationship
 from webapp.db import db
 from datetime import datetime
 
@@ -12,6 +13,14 @@ class Notice(db.Model):
                 db.ForeignKey('board.id', ondelete='CASCADE'),
                 index = True
         )
+        user_id = db.Column(
+                db.Integer,
+                db.ForeignKey('user.id', ondelete='CASCADE'),
+                index = True
+        )
+        notice = relationship('Board', backref='notice')
+        user = relationship('User', backref='notice')
+
 
         def __repr__(self):
-            return '<Notice {} {}>'.format(self.title, self.url)
+            return '<Notice {}>'.format(self.id)

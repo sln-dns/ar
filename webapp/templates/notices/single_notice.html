@@ -13,22 +13,15 @@
     </div>
     {% endif %}
 {% endwith %}
-            <h4>message id</h4>
+            <h4>id</h4>
         </div>
         <div class="col">
-         <h4><a href = {{url_for('message.message')}}> message header</a></h4>
+         <h4> message text </h4>
         </div>
         <div class="col">
-         <h4>notice</h4>
+         <h4>Notice</h4>
         </div>
        </div>
       </div>
-      <form action="{{ url_for('message.add_notice') }}" method="POST">
-        {{ notice_form.hidden_tag() }}
-        <div class="form-group">
-            {{ notice_form.comment_text.label }}
-            {{ notice_form.comment_text() }}
-        </div>
-        {{ notice_form.submit() }}
-    </form>
+
       {% endblock %}
