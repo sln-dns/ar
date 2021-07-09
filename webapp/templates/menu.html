@@ -20,7 +20,7 @@
               {%if not current_user.is_admin%}
 
               {% else %}
-            <a class="nav-link" href="{{url_for('admin.add_board')}}">Add Board</a>
+            <a class="nav-link" href="{{url_for('board.board_add')}}">Add Board</a>
           
             {%endif%}
         </li>

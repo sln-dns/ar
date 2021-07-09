@@ -14,15 +14,15 @@
     </div>
     {% endif %}
 {% endwith %}
-<form action="{{ url_for('message.process_add') }}" method="POST">
+<form action="{{ url_for('board.process_add_board') }}" method="POST">
     {{ form.hidden_tag() }}
       <div class="form-group">
-          {{ form.notice_title.data.label }}
-          {{ form.notice_title() }}
+          {{ form.adress.data.label }}
+          {{ form.adress() }}
       </div>
       <div class="form-group">
-          {{ form.notice_text.data.label }}
-          {{ form.notice_text() }}
+          {{ form.memorys.data.label }}
+          {{ form.memorys() }}
       </div>
      
       {{ form.submit() }}
@@ -30,7 +30,7 @@
             </div>
            
         </div> 
-
+      
 
     </div>
     {% endblock %}

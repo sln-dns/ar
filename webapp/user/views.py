@@ -48,7 +48,11 @@ def register():
 def process_reg():
     form = RegistrationForm()
     if form.validate_on_submit():
-        news_user = User(username=form.username.data, email=form.email.data, role='user')
+        news_user = User(
+            username=form.username.data, 
+            email=form.email.data, 
+            role='user',
+            )
         news_user.set_password(form.password.data)
         db.session.add(news_user)
         db.session.commit()

@@ -2,7 +2,8 @@ from getpass import getpass
 import sys
 
 from webapp import create_app
-from webapp.models import db, User
+from webapp.user.models import User
+from webapp.db import db
 
 app = create_app()
 
@@ -23,4 +24,4 @@ with app.app_context():
 
     db.session.add(new_user)
     db.session.commit()
-    print('User with id {} added'.format(new_user.id))
+    print('User with id {} added'.format(new_user.user_id))

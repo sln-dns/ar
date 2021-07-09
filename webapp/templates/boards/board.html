@@ -15,19 +15,7 @@
 {% endwith %}
 
 
-<form action="{{ url_for('message.notice_add') }}" method="POST">
-  {{ form.hidden_tag() }}
-    <div class="form-group">
-        {{ form.notice_title.data.label }}
-        {{ form.notice_title.data() }}
-    </div>
-    <div class="form-group">
-        {{ form.notice_text.data.label }}
-        {{ form.notice_text.data() }}
-    </div>
-   
-    {{ form.submit() }}
-</form>
+
 
 
 
