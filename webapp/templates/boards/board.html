@@ -13,22 +13,55 @@
     </div>
     {% endif %}
 {% endwith %}
-            <h4>message id</h4>
-        </div>
-        <div class="col">
-         <h4><a href = {{url_for('message.message')}}> message header</a></h4>
-        </div>
-        <div class="col">
-         <h4>notice</h4>
-        </div>
-       </div>
-      </div>
-      <form action="{{ url_for('message.add_notice') }}" method="POST">
-        {{ notice_form.hidden_tag() }}
-        <div class="form-group">
-            {{ notice_form.comment_text.label }}
-            {{ notice_form.comment_text() }}
-        </div>
-        {{ notice_form.submit() }}
-    </form>
-      {% endblock %}
+
+
+<form action="{{ url_for('message.notice_add') }}" method="POST">
+  {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.notice_title.data.label }}
+        {{ form.notice_title.data() }}
+    </div>
+    <div class="form-group">
+        {{ form.notice_text.data.label }}
+        {{ form.notice_text.data() }}
+    </div>
+   
+    {{ form.submit() }}
+</form>
+
+
+
+<table class="table">
+    <thead>
+      <tr class="table-secondary">
+        <th scope="col">id</th>
+        <th scope="col">Header</th>
+        <th scope="col">Text</th>
+        <th scope="col">Author</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td><a href = {{url_for('message.message')}}>отключат воду</a></td>
+        <td>25 числа сего месяца, с дворником ничего не случится, но отключат воду</td>
+        <td>тест</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>заголовок объявления</td>
+        <td>текст объявления</td>
+        <td>автор объявления</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>заголовок объявления1</td>
+        <td>текст объявления1</td>
+        <td>автор объявления1</td>
+        
+      </tr>
+    </tbody>
+  </table>       
+  </div>
+  </div>
+  {% endblock %}

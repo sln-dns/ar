@@ -14,7 +14,7 @@
     </div>
     {% endif %}
 {% endwith %}
-<form action="{{ url_for('notice.add_notice') }}" method="POST">
+<form action="{{ url_for('notice.notice_add') }}" method="POST">
     {{ comment_form.hidden_tag() }}
     <div class="form-group">
         {{ comment_form.comment_text.label }}
