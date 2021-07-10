@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+    
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+          {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-warning" role="alert">
+        {% for message in messages %}
+            {{ message }}<br>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endwith %}
+
+<table class="table">
+    <thead>
+        <tr class="table-secondary">
+          <th scope="col">Номер доски</th>
+          <th scope="col">Адрес доски</th>
+          <th scope="col">Примечания</th>
+          
+        </tr>
+      </thead>
+    {% for item in boards %}
+    <TR>
+       
+       <TD class="c2">{{item.board_id}}</TD>
+       <TD class="c3">{{item.adress}}</TD>
+       <TD class="c4"><SPAN>{{item.memorys}}</SPAN></TD>
+       
+    </TR>
+    {% endfor %}
+    </table>
+         
+  </div>
+  </div>
+  {% endblock %}

@@ -24,7 +24,7 @@ def process_login():
         if user and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
             flash('Вы вошли на сайт')
-            return redirect(url_for('board.board'))
+            return redirect(url_for('index'))
     flash('Неправильное имя пользователя или пароль')
     return redirect(url_for('user.login'))
 
@@ -32,7 +32,7 @@ def process_login():
 def logout():
     logout_user()
     flash('Вы успешно разлогинились')
-    return redirect(url_for('board.board'))   
+    return redirect(url_for('index'))   
 
 
 @blueprint.route('/register')

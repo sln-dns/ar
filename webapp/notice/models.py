@@ -18,8 +18,8 @@ class Notice(db.Model):
                 db.ForeignKey('user.user_id', ondelete='CASCADE'),
                 index = True
         )
-        notice = relationship('Board', backref='notice')
-        user = relationship('User', backref='notice')
+        notice = db.relationship('Board', backref='notice')
+        user = db.relationship('User', backref='notice')
 
 
         def __repr__(self):

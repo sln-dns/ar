@@ -13,15 +13,27 @@
     </div>
     {% endif %}
 {% endwith %}
-            <h4>id</h4>
-        </div>
-        <div class="col">
-         <h4> message text </h4>
-        </div>
-        <div class="col">
-         <h4>Notice</h4>
-        </div>
-       </div>
-      </div>
+            
+<table class="table">
+    <thead>
+      <tr class="table-secondary">
+        <th scope="col">Номер объявления</th>
+        <th scope="col">Заголовок объявления</th>
+        <th scope="col">Текст объявления</th>
+        <th scope="col">Дата объявления</th>
+        <th scope="col">Автор объявления</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{notice.notice_id}}</th>
+        <td>{{notice.title}}</td>
+        <td>{{notice.text}}</td>
+        <td>{{notice.date}}</td>
+        <td>{{notice.author}}</td>
+      </tr>
+      
+    </tbody>
+  </table>       
 
       {% endblock %}

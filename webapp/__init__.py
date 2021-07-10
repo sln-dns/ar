@@ -40,13 +40,18 @@ def create_app():
     def send_js(path):
         return send_from_directory('/static', path)
 
-    @app.route('/')
-    def index():
-        title = "list of boards"
+    #@app.route('/')
+    #def index():
+    #    title = "list of boards"
             #    longitude = longitude_now()
             #    latitude = latitude_now()
-        return render_template('boards/index.html', page_title=title)
+    #    return render_template('boards/index.html', page_title=title)
 
+    @app.route('/')
+    def index():
+        title = 'Список всех досок'
+        all_boards = Board.query.all()
+        return render_template ('boards/all_boards.html', boards=all_boards, page_title = title)
     
     
     return app
