@@ -26,18 +26,20 @@ def board_add():
 @blueprint.route('/process-board-add', methods=['POST'])
 def process_add_board():
     form = BoardForm()
+    date = datetime.now()
     if current_user.is_admin:
+        author = 'admin'
         if form.validate_on_submit():
             new_board = Board(
                 adress=form.adress.data, 
                 memorys=form.memorys.data, 
-                author=current_user, 
-                date=datetime.now,
+                author=author, 
+                date=date,
                 )
             db.session.add(new_board)
             db.session.commit()
             flash('Новая доска объявлений добавлена.')
-            return redirect(url_for('boards')) #исправить на notices.<<int:notice_id>>
+            return redirect(url_for('board.board')) #исправить на notices.<<int:notice_id>>
         flash('Пожалуйста, исправьте ошибки')
         return redirect(url_for('board.board_add'))
     flash ('Добавлять доски может только admin')
