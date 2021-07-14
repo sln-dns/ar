@@ -26,14 +26,16 @@
     {% for item in boards %}
     <TR>
        
-       <TD class="c2">{{item.board_id}}</TD>
-       <TD class="c3">{{item.adress}}</TD>
+     
+       <TD class="c2"><SPAN>{{item.board_id}}</SPAN> </TD>
+       <TD class="c3"><SPAN><a href="{{url_for('board.single_board', board_id = item.board_id) }}">{{item.adress}}</a></SPAN> </TD>
        <TD class="c4"><SPAN>{{item.memorys}}</SPAN></TD>
        
     </TR>
     {% endfor %}
     </table>
-         
+   
+
   </div>
   </div>
   {% endblock %}

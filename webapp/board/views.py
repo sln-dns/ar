@@ -1,5 +1,6 @@
 from webapp.board.forms import BoardForm
 from webapp.board.models import Board
+from webapp.notice.models import Notice
 from flask import Blueprint, render_template, current_app, redirect, flash, abort
 from flask.helpers import url_for
 from flask_login import login_required, current_user
@@ -17,18 +18,25 @@ def all_boards():
     return render_template ('boards/all_boards.html', boards=all_boards)
 
 
-
+@blueprint.route('/ar/<int:board_id>')
+def board_ar(board_id):
+    title = "AR"
+    all_notices = Notice.query.filter(Notice.board_id == board_id).all()
+    all_notices_str = str(" ")
+    all_notices_str = all_notices_str.join(all_notices)
+    
+    return render_template('boards/ar1.html', notices = all_notices_str)
 
 @blueprint.route('/<int:board_id>')
 def single_board(board_id):
     title = "board"
-    single_board = Board.query.filter(board_id == board_id).first()
-    
+    single_board = Board.query.filter(Board.board_id == board_id).first()
+    all_notices = Notice.query.filter(Notice.board_id == board_id).all()
     if not single_board:
         abort(404)
         
     #notice_form=NoticeForm()
-    return render_template('boards/single_board.html', board=single_board)
+    return render_template('boards/single_board.html', board=single_board, notices = all_notices)
     #url = url_for('board.board', _external = True)
     #return render_template('boards/board.html', page_title=title)
 

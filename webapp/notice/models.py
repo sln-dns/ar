@@ -23,4 +23,4 @@ class Notice(db.Model):
 
 
         def __repr__(self):
-            return '<Notice {}>'.format(self.id)
+            return format(self.text)

@@ -22,35 +22,41 @@
 <table class="table">
     <thead>
       <tr class="table-secondary">
-        <th scope="col">id</th>
-        <th scope="col">Adress</th>
-        <th scope="col">Memorys</th>
-        <comment><th scope="col">Author</th></comment>>
+        <th scope="col">notice_id</th>
+        <th scope="col">notice_header</th>
+        <th scope="col">notice_date</th>
+        <comment></comment><th scope="col">Author</th></comment>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <th scope="row"> {{ board.board_id }}</th>
-        <td><a href = {{url_for('message.message')}}>{{ board.adress }}</a></td>
-        <td>{{ board.memorys }}</td>
-        <comment><td>тест</td></comment>
-      </tr>
-      <comment><tr>
-        <th scope="row">2</th>
-        <td>заголовок объявления</td>
-        <td>текст объявления</td>
-        <td>автор объявления</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>заголовок объявления1</td>
-        <td>текст объявления1</td>
-        <td>автор объявления1</td>
-        
-      </tr>
-      </comment>
-    </tbody>
-  </table>       
+    {% for item in notices %}
+    <TR>
+       
+     
+       <TD class="c2"><SPAN>{{item.notice_id}}</SPAN> </TD>
+       <TD class="c3"><SPAN><a href="{{url_for('message.single_notice', notice_id=item.notice_id) }}">{{item.title}}</a></SPAN> </TD>
+       <TD class="c4"><SPAN>{{item.date}}</SPAN></TD>
+       <TD class="c4"><SPAN>{{item.author}}</SPAN></TD>
+       
+    </TR>
+    {% endfor %}
+  </table>  
+   
+  <table class="table">
+    <TR>
+      <TD>
+  <a href="{{url_for('message.notice_add', board_id=board.board_id) }}">
+    <button type="button" class="btn btn-secondary">Добавить объявление на эту доску</button>
+  </a>
+</TD>
   </div>
+  </div>
+  <TD>
+  <a href="{{url_for('board.board_ar', board_id=board.board_id) }}">
+    <button type="button" class="btn btn-secondary">Запустить AR-vision для этой доски</button>
+  </a>
+</TD>
+  </div>
+</TR>
+</table>
   </div>
   {% endblock %}
