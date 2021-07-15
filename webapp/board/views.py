@@ -22,10 +22,9 @@ def all_boards():
 def board_ar(board_id):
     title = "AR"
     all_notices = Notice.query.filter(Notice.board_id == board_id).all()
-    all_notices_str = str(" ")
-    all_notices_str = all_notices_str.join(all_notices)
-    
-    return render_template('boards/ar1.html', notices = all_notices_str)
+    all_notices_str = '|'.join([str(item) for item in all_notices]) 
+          
+    return render_template('boards/ar.html', notices = all_notices_str)
 
 @blueprint.route('/<int:board_id>')
 def single_board(board_id):
